@@ -102,7 +102,7 @@ def main_loop():
         predict()
         print()
         print(20 * "-")
-        user_input = input("init, save, load, draw, print, quit, debug\n\n>>>")
+        user_input = input("init, save, load, draw, print, remove, quit, debug\n\n>>>")
         if user_input == "init":
             infection_deck = starting_deck.copy()            
 
@@ -118,11 +118,17 @@ def main_loop():
             
         elif user_input == "print":
             print_state()
+        
+        elif user_input == "remove":
+            user_input = input("Which card was removed?\n")
+            discard_pile.remove(user_input.title())
             
         elif user_input == "quit":
             break
+
         elif user_input == "debug":
             IPython.embed()
+
         else:
             print("Invalid input, please try again")
 
